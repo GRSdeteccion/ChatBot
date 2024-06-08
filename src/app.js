@@ -1,65 +1,120 @@
 import { join } from 'path'
 import { createBot, createProvider, createFlow, addKeyword, utils } from '@builderbot/bot'
 import { MemoryDB as Database } from '@builderbot/bot'
-import { BaileysProvider as Provider } from '@builderbot/provider-baileys'
+import { WPPConnectProvider as Provider } from '@builderbot/provider-wppconnect'
 
 const PORT = process.env.PORT ?? 3008
 
-const discordFlow = addKeyword('doc').addAnswer(
-    ['You can see the documentation here', '📄 https://builderbot.app/docs \n', 'Do you want to continue? *yes*'].join(
-        '\n'
-    ),
-    { capture: true },
-    async (ctx, { gotoFlow, flowDynamic }) => {
-        if (ctx.body.toLocaleLowerCase().includes('yes')) {
-            return gotoFlow(registerFlow)
-        }
-        await flowDynamic('Thanks!')
-        return
-    }
-)
-
-const welcomeFlow = addKeyword(['hi', 'hello', 'hola'])
-    .addAnswer(`🙌 Hello welcome to this *Chatbot*`)
-    .addAnswer(
-        [
-            'I share with you the following links of interest about the project',
-            '👉 *doc* to view the documentation',
-        ].join('\n'),
-        { delay: 800, capture: true },
-        async (ctx, { fallBack }) => {
-            if (!ctx.body.toLocaleLowerCase().includes('doc')) {
-                return fallBack('You should type *doc*')
-            }
-            return
-        },
-        [discordFlow]
-    )
-
-const registerFlow = addKeyword(utils.setEvent('REGISTER_FLOW'))
-    .addAnswer(`What is your name?`, { capture: true }, async (ctx, { state }) => {
-        await state.update({ name: ctx.body })
+const flow1 = addKeyword('1')
+    .addAnswer(`¿Qué especialidad de pizza deseas ordenar y tamaño?`, { capture: true }, async (ctx, { state }) => {
+        await state.update({ order: ctx.body })
     })
-    .addAnswer('What is your age?', { capture: true }, async (ctx, { state }) => {
-        await state.update({ age: ctx.body })
+    .addAnswer('¿Deseas agregar un refresco? de ser así especifica el sabor', { capture: true }, async (ctx, { state }) => {
+        await state.update({ soda: ctx.body })
     })
     .addAction(async (_, { flowDynamic, state }) => {
-        await flowDynamic(`${state.get('name')}, thanks for your information!: Your age: ${state.get('age')}`)
+        await flowDynamic(`Agradecemos tu preferencia, te confirmo tu pedido: \n-Pizza: ${state.get('order')} \n-Refresco: ${state.get('soda')}`)
     })
+    .addAnswer(`¿Tu pedido está correcto? *Si* / *No*`)
+    .addAnswer(`_'#' para volver al menú principal_`)
 
-const fullSamplesFlow = addKeyword(['samples', utils.setEvent('SAMPLES')])
-    .addAnswer(`💪 I'll send you a lot files...`)
-    .addAnswer(`Send image from Local`, { media: join(process.cwd(), 'assets', 'sample.png') })
-    .addAnswer(`Send video from URL`, {
-        media: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTJ0ZGdjd2syeXAwMjQ4aWdkcW04OWlqcXI3Ynh1ODkwZ25zZWZ1dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LCohAb657pSdHv0Q5h/giphy.mp4',
-    })
-    .addAnswer(`Send audio from URL`, { media: 'https://cdn.freesound.org/previews/728/728142_11861866-lq.mp3' })
-    .addAnswer(`Send file from URL`, {
-        media: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
-    })
+const flow2 = addKeyword(['2', utils.setEvent('2')])
+    .addAnswer(`Este es nuestro menú`)
+    .addAnswer(`2`, { media: join(process.cwd(), 'assets', 'sample.jpg') })
+    .addAnswer(`_'#' para volver al menú principal_`, null, async (ctx, { gotoFlow }) => {
+        return gotoFlow(mainFlow);
+    });
+    
+const flow3 = addKeyword(['3', utils.setEvent('3')])
+    .addAnswer('¿De cuál de nuestras pizzas te gustaría conocer los ingredientes?')
+    .addAnswer(
+        [
+            '1️⃣ Margarita',
+            '2️⃣ Pepperoni',
+            '3️⃣ Vegetariana',
+            '4️⃣ Cuatro Estaciones',
+            '#️⃣ Volver al Menú principal',
+        ].join('\n'),
+        { delay: 10, capture: true },
+        async (ctx, { fallBack , gotoFlow }) => {
+            if (!['1', '2', '3', '4'].some(option => ctx.body.toLocaleLowerCase().includes(option))) {
+                return fallBack('Por favor elige una de las opciones disponibles');
+            }
+            else if (ctx.body.toLocaleLowerCase().includes('1')) {
+                return gotoFlow(flowMar);
+            }
+            else if (ctx.body.toLocaleLowerCase().includes('2')) {
+                return gotoFlow(flowPep);
+            }
+            else if (ctx.body.toLocaleLowerCase().includes('3')) {
+                return gotoFlow(flowVeg);
+            }
+            else if (ctx.body.toLocaleLowerCase().includes('4')) {
+                return gotoFlow(flowCua);
+            }
+            return;
+        },
+        []
+    )
+
+const flowMar = addKeyword(['1', utils.setEvent('1')])
+    .addAnswer(`Pizza napolitana elaborada con tomate, mozzarella, albahaca fresca, sal y aceite.`)
+    .addAnswer(`_'#' para volver al menú principal_`)
+
+const flowPep = addKeyword(['2', utils.setEvent('2')])
+    .addAnswer(`Pizza con base de salsa de tomate, mozzarella y pepperoni.`)
+    .addAnswer(`_'#' para volver al menú principal_`)
+
+const flowVeg = addKeyword(['3', utils.setEvent('3')])
+    .addAnswer(`Pizza elaborada con cebolla, maíz, mozzarella, champiñones y jitomate.`)
+    .addAnswer(`_'#' para volver al menú principal_`)
+
+const flowCua = addKeyword(['4', utils.setEvent('4')])
+    .addAnswer(`Pizza dividida en cuatro secciones, preparada con alcachofas, albahaca, tomate, setas, jamón y aceitunas.`)
+    .addAnswer(`_'#' para volver al menú principal_`)
+
+const flow4 = addKeyword(['4', utils.setEvent('4')])
+    .addAnswer(`Esta es nuestra dirección`)
+    .addAnswer(`https://maps.app.goo.gl/DozfCECmQ38WFNuG7`)
+    .addAnswer(`_'#' para volver al menú principal_`)
+
+const mainFlow = addKeyword(['#'])
+    .addAnswer(`*Menú Principal*`)
+    .addAnswer(`🙌 ¡Hola! ¿Qué tal si te ayudo a saciar tu apetito con una deliciosa pizza de *Mateini's*?`)
+    .addAnswer(
+        [
+            'Elige una de las siguientes opciones para continuar:',
+            ' 1️⃣​ Hacer un pedido',
+            ' 2️⃣​ Menú',
+            ' 3️⃣​​ Ingredientes pizzas',
+            ' 4️⃣​​ Ubicación',
+            // ' 5 ¿Hay domicilio a mi ubicación?',
+        ].join('\n'),
+        { delay: 10, capture: true },
+        async (ctx, { fallBack , gotoFlow }) => {
+            if (!['1', '2', '3', '4'].some(option => ctx.body.toLocaleLowerCase().includes(option))) {
+                return fallBack('Por favor elige una de las opciones disponibles');
+            }
+            else if (ctx.body.toLocaleLowerCase().includes('1')) {
+                return gotoFlow(flow1);
+            }
+            else if (ctx.body.toLocaleLowerCase().includes('2')) {
+                return gotoFlow(flow2);
+            }
+            else if (ctx.body.toLocaleLowerCase().includes('3')) {
+                return gotoFlow(flow3);
+            }
+            else if (ctx.body.toLocaleLowerCase().includes('4')) {
+                return gotoFlow(flow4);
+            }
+            return;
+        },
+        []
+    )
+    
 
 const main = async () => {
-    const adapterFlow = createFlow([welcomeFlow, registerFlow, fullSamplesFlow])
+    const adapterFlow = createFlow([mainFlow, flow1, flow2, flow3, flowMar, flowPep, flowVeg, flowCua, flow4])
     
     const adapterProvider = createProvider(Provider)
     const adapterDB = new Database()
