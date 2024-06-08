@@ -1,2 +1,3 @@
-2024/06/07-21:38:23.494 14b4f Creating DB /home/mateiny/Documentos/Github/ChatBot/bot_sessions/bot_sessions/Default/Sync Data/LevelDB since it was missing.
-2024/06/07-21:38:23.524 14b4f Reusing MANIFEST /home/mateiny/Documentos/Github/ChatBot/bot_sessions/bot_sessions/Default/Sync Data/LevelDB/MANIFEST-000001
+2024/06/07-21:39:57.339 14e54 Reusing MANIFEST /home/mateiny/Documentos/Github/ChatBot/bot_sessions/bot_sessions/Default/Sync Data/LevelDB/MANIFEST-000001
+2024/06/07-21:39:57.340 14e54 Recovering log #3
+2024/06/07-21:39:57.341 14e54 Reusing old log /home/mateiny/Documentos/Github/ChatBot/bot_sessions/bot_sessions/Default/Sync Data/LevelDB/000003.log 
