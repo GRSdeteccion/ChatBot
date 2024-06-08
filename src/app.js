@@ -59,24 +59,30 @@ const flow3 = addKeyword(['3', utils.setEvent('3')])
 
 const flowMar = addKeyword(['1', utils.setEvent('1')])
     .addAnswer(`Pizza napolitana elaborada con tomate, mozzarella, albahaca fresca, sal y aceite.`)
-    .addAnswer(`_'#' para volver al menú principal_`)
-
+    .addAnswer(``, null, async (ctx, { gotoFlow }) => {
+        return gotoFlow(flow3);
+    });
 const flowPep = addKeyword(['2', utils.setEvent('2')])
     .addAnswer(`Pizza con base de salsa de tomate, mozzarella y pepperoni.`)
-    .addAnswer(`_'#' para volver al menú principal_`)
-
+    .addAnswer(`_`, null, async (ctx, { gotoFlow }) => {
+        return gotoFlow(flow3);
+    });
 const flowVeg = addKeyword(['3', utils.setEvent('3')])
     .addAnswer(`Pizza elaborada con cebolla, maíz, mozzarella, champiñones y jitomate.`)
-    .addAnswer(`_'#' para volver al menú principal_`)
-
+    .addAnswer(``, null, async (ctx, { gotoFlow }) => {
+        return gotoFlow(flow3);
+    });
 const flowCua = addKeyword(['4', utils.setEvent('4')])
     .addAnswer(`Pizza dividida en cuatro secciones, preparada con alcachofas, albahaca, tomate, setas, jamón y aceitunas.`)
-    .addAnswer(`_'#' para volver al menú principal_`)
-
+    .addAnswer(``, null, async (ctx, { gotoFlow }) => {
+        return gotoFlow(flow3);
+    });
 const flow4 = addKeyword(['4', utils.setEvent('4')])
     .addAnswer(`Esta es nuestra dirección`)
     .addAnswer(`https://maps.app.goo.gl/DozfCECmQ38WFNuG7`)
-    .addAnswer(`_'#' para volver al menú principal_`)
+    .addAnswer(`Te estaremos esperando, para nosotros será un gusto atenderte`, null, async (ctx, { gotoFlow }) => {
+        return gotoFlow(mainFlow);
+    });
 
 const mainFlow = addKeyword(['#'])
     .addAnswer(`*Menú Principal*`)
@@ -114,7 +120,7 @@ const mainFlow = addKeyword(['#'])
     
 
 const main = async () => {
-    const adapterFlow = createFlow([mainFlow, flow1, flow2, flow3, flowMar, flowPep, flowVeg, flowCua, flow4])
+    const adapterFlow = createFlow([mainFlow])
     
     const adapterProvider = createProvider(Provider)
     const adapterDB = new Database()
