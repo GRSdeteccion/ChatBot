@@ -1,65 +1,39 @@
+# Image size ~ 400MB
 FROM node:21-alpine3.18 as builder
 
-RUN apk add --no-cache \
-      git \
-      python3 \
-      make \
-      g++ \
-      chromium \
-      nss \
-      freetype \
-      harfbuzz \
-      ca-certificates \
-      libpq-dev \
-      ttf-freefont \
-      udev
+WORKDIR /app
 
 RUN corepack enable && corepack prepare pnpm@latest --activate
 ENV PNPM_HOME=/usr/local/bin
-
-RUN addgroup -S pptruser && adduser -S -G pptruser pptruser
-
-WORKDIR /app
-RUN chown -R pptruser:pptruser /app
-
-USER pptruser
-
-COPY package.json *-lock.* ./
-
-RUN pnpm install --production=false
 
 COPY . .
 
-FROM node:21-alpine3.18
+COPY package*.json *-lock.yaml ./
 
-RUN apk add --no-cache \
-      chromium \
-      nss \
-      freetype \
-      harfbuzz \
-      ca-certificates \
-      libpq-dev \
-      ttf-freefont \
-      udev
+RUN apk add --no-cache --virtual .gyp \
+        python3 \
+        make \
+        g++ \
+    && apk add --no-cache git \
+    && pnpm install \
+    && apk del .gyp
 
-RUN corepack enable && corepack prepare pnpm@latest --activate
-ENV PNPM_HOME=/usr/local/bin
-
-RUN addgroup -S pptruser && adduser -S -G pptruser pptruser
+FROM node:21-alpine3.18 as deploy
 
 WORKDIR /app
-
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/package.json /app/pnpm-lock.yaml ./
-
-RUN chown -R pptruser:pptruser /app
-
-USER pptruser
 
 ARG PORT
 ENV PORT $PORT
 EXPOSE $PORT
 
-RUN pnpm install --production
+COPY --from=builder /app ./
+COPY --from=builder /app/*.json /app/*-lock.yaml ./
+
+RUN corepack enable && corepack prepare pnpm@latest --activate 
+ENV PNPM_HOME=/usr/local/bin
+
+RUN npm cache clean --force && pnpm install --production --ignore-scripts \
+    && addgroup -g 1001 -S nodejs && adduser -S -u 1001 nodejs \
+    && rm -rf $PNPM_HOME/.npm $PNPM_HOME/.node-gyp
 
 CMD ["npm", "start"]
