@@ -1,0 +1,538 @@
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214432545043@s.whatsapp.net',
+    fromMe: false,
+    id: '8082488B1307E919463F0181CF8E8959',
+    participant: undefined
+  },
+  messageTimestamp: 1717820644,
+  pushName: 'Maggie',
+  broadcast: false,
+  message: Message {
+    conversation: '#',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '#',
+  name: 'Maggie',
+  from: '5214432545043',
+  host: '5214433632025'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_3f33c2ff-235e-4a45-8c7b-a4dc2b3e15d6',
+  keyword: 'key_283d24fe-57ae-4ab1-b881-35f1b0628b4c',
+  answer: '*Menú Principal*',
+  options: {
+    media: undefined,
+    buttons: [],
+    capture: false,
+    delay: 0,
+    idle: undefined,
+    ref: undefined,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '4c8005d4da457bf086509e038da32797'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_87ffd43b-e219-4663-a653-7d6e6f987fe3',
+  keyword: 'ans_3f33c2ff-235e-4a45-8c7b-a4dc2b3e15d6',
+  answer: "🙌 ¡Hola! ¿Qué tal si te ayudo a saciar tu apetito con una deliciosa pizza de *Mateini's*?",
+  options: {
+    media: undefined,
+    buttons: [],
+    capture: false,
+    delay: 0,
+    idle: undefined,
+    ref: undefined,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: 'bf332d36b08da3d3ec507985378eb3df'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_e441e6a8-ca26-47ae-b849-dbade83c8536',
+  keyword: 'ans_87ffd43b-e219-4663-a653-7d6e6f987fe3',
+  answer: '__call_action__',
+  options: {
+    media: undefined,
+    buttons: [],
+    capture: false,
+    delay: 0,
+    idle: undefined,
+    ref: undefined,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'd94feabe76dbfa49d46a3634a100670e'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_e3eb4a99-84d4-447b-bcd5-a2fa2a341f0b',
+  keyword: 'ans_e441e6a8-ca26-47ae-b849-dbade83c8536',
+  answer: 'Elige una de las siguientes opciones para continuar:\n' +
+    ' 1️⃣​ Hacer un pedido\n' +
+    ' 2️⃣​ Menú\n' +
+    ' 3️⃣​​ Ingredientes pizzas\n' +
+    ' 4️⃣​​ Ubicación',
+  options: {
+    media: undefined,
+    buttons: [],
+    capture: false,
+    delay: 10,
+    idle: undefined,
+    ref: undefined,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '467f8440175491e63e0d9fee35b90fe9'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_c969d9e9-83bd-4927-80e7-f61e42bc372e',
+  keyword: 'ans_e3eb4a99-84d4-447b-bcd5-a2fa2a341f0b',
+  answer: '__capture_only_intended__',
+  options: {
+    media: undefined,
+    buttons: [],
+    capture: true,
+    delay: 10,
+    idle: undefined,
+    ref: undefined,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '9faec3cf0b8230d2211c4520b37b08ae'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214432545043@s.whatsapp.net',
+    fromMe: false,
+    id: 'E134D01A6A4C8215B0CF13BC9FD82DE8',
+    participant: undefined
+  },
+  messageTimestamp: 1717820648,
+  pushName: 'Maggie',
+  broadcast: false,
+  message: Message {
+    conversation: '4',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '4',
+  name: 'Maggie',
+  from: '5214432545043',
+  host: '5214433632025'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214432545043@s.whatsapp.net',
+    fromMe: false,
+    id: '458B9218D49C4DEA533B1E54418DE8EF',
+    participant: undefined
+  },
+  messageTimestamp: 1717820653,
+  pushName: 'Maggie',
+  broadcast: false,
+  message: Message {
+    conversation: '1',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '1',
+  name: 'Maggie',
+  from: '5214432545043',
+  host: '5214433632025'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214432545043@s.whatsapp.net',
+    fromMe: false,
+    id: 'D0BD2DC00E6630A7E891A6E23715C77F',
+    participant: undefined
+  },
+  messageTimestamp: 1717820659,
+  pushName: 'Maggie',
+  broadcast: false,
+  message: Message {
+    conversation: 'Margarita grande',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Margarita grande',
+  name: 'Maggie',
+  from: '5214432545043',
+  host: '5214433632025'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_e328d43f-8a55-4dba-843c-0577d6911b81',
+  keyword: 'ans_f319f254-5a54-4bc6-ace5-1c601e2c793b',
+  answer: '¿Deseas agregar un refresco? de ser así especifica el sabor',
+  options: {
+    media: undefined,
+    buttons: [],
+    capture: false,
+    delay: 0,
+    idle: undefined,
+    ref: undefined,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '762de73a3f3dfc932b51d4104e0d8063'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_2d03132f-1c87-437f-bcf5-c8eb1bae9b99',
+  keyword: 'ans_e328d43f-8a55-4dba-843c-0577d6911b81',
+  answer: '__capture_only_intended__',
+  options: {
+    media: undefined,
+    buttons: [],
+    capture: true,
+    delay: 0,
+    idle: undefined,
+    ref: undefined,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'b850854f652bd011ef37d7beb0550122'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214432545043@s.whatsapp.net',
+    fromMe: false,
+    id: 'BF34D8EE58C08F8370D3010B9C803BCA',
+    participant: undefined
+  },
+  messageTimestamp: 1717820666,
+  pushName: 'Maggie',
+  broadcast: false,
+  message: Message {
+    conversation: 'Coca',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Coca',
+  name: 'Maggie',
+  from: '5214432545043',
+  host: '5214433632025'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_5e6cdbbe-09a6-4872-8bad-5046a99eb0b2',
+  keyword: 'ans_2d03132f-1c87-437f-bcf5-c8eb1bae9b99',
+  answer: '__call_action__',
+  options: {
+    media: undefined,
+    buttons: [],
+    capture: false,
+    delay: 0,
+    idle: undefined,
+    ref: undefined,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '26cc833a8c458830c5e32a39a7dac600'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214432545043@s.whatsapp.net',
+    fromMe: false,
+    id: '6B38F8CED339EAA92D994BD89DF61111',
+    participant: undefined
+  },
+  messageTimestamp: 1717820681,
+  pushName: 'Maggie',
+  broadcast: false,
+  message: Message {
+    conversation: '2',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '2',
+  name: 'Maggie',
+  from: '5214432545043',
+  host: '5214433632025'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214432545043@s.whatsapp.net',
+    fromMe: false,
+    id: 'A80563AA4C3DCD1AB95546CB790A7EF8',
+    participant: undefined
+  },
+  messageTimestamp: 1717820692,
+  pushName: 'Maggie',
+  broadcast: false,
+  message: Message {
+    conversation: '3',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '3',
+  name: 'Maggie',
+  from: '5214432545043',
+  host: '5214433632025'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214432545043@s.whatsapp.net',
+    fromMe: false,
+    id: 'D126436DB76A5BA81D2AB13619E27CD2',
+    participant: undefined
+  },
+  messageTimestamp: 1717820695,
+  pushName: 'Maggie',
+  broadcast: false,
+  message: Message {
+    conversation: '1',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '1',
+  name: 'Maggie',
+  from: '5214432545043',
+  host: '5214433632025'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214432545043@s.whatsapp.net',
+    fromMe: false,
+    id: 'C953B02DA624CA039ACF6C76BCF4A6CF',
+    participant: undefined
+  },
+  messageTimestamp: 1717820703,
+  pushName: 'Maggie',
+  broadcast: false,
+  message: Message {
+    conversation: '#',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '#',
+  name: 'Maggie',
+  from: '5214432545043',
+  host: '5214433632025'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_3f33c2ff-235e-4a45-8c7b-a4dc2b3e15d6',
+  keyword: 'key_283d24fe-57ae-4ab1-b881-35f1b0628b4c',
+  answer: '*Menú Principal*',
+  options: {
+    media: undefined,
+    buttons: [],
+    capture: false,
+    delay: 0,
+    idle: undefined,
+    ref: undefined,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '4c8005d4da457bf086509e038da32797'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_87ffd43b-e219-4663-a653-7d6e6f987fe3',
+  keyword: 'ans_3f33c2ff-235e-4a45-8c7b-a4dc2b3e15d6',
+  answer: "🙌 ¡Hola! ¿Qué tal si te ayudo a saciar tu apetito con una deliciosa pizza de *Mateini's*?",
+  options: {
+    media: undefined,
+    buttons: [],
+    capture: false,
+    delay: 0,
+    idle: undefined,
+    ref: undefined,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: 'bf332d36b08da3d3ec507985378eb3df'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_e441e6a8-ca26-47ae-b849-dbade83c8536',
+  keyword: 'ans_87ffd43b-e219-4663-a653-7d6e6f987fe3',
+  answer: '__call_action__',
+  options: {
+    media: undefined,
+    buttons: [],
+    capture: false,
+    delay: 0,
+    idle: undefined,
+    ref: undefined,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'd94feabe76dbfa49d46a3634a100670e'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_e3eb4a99-84d4-447b-bcd5-a2fa2a341f0b',
+  keyword: 'ans_e441e6a8-ca26-47ae-b849-dbade83c8536',
+  answer: 'Elige una de las siguientes opciones para continuar:\n' +
+    ' 1️⃣​ Hacer un pedido\n' +
+    ' 2️⃣​ Menú\n' +
+    ' 3️⃣​​ Ingredientes pizzas\n' +
+    ' 4️⃣​​ Ubicación',
+  options: {
+    media: undefined,
+    buttons: [],
+    capture: false,
+    delay: 10,
+    idle: undefined,
+    ref: undefined,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '467f8440175491e63e0d9fee35b90fe9'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_c969d9e9-83bd-4927-80e7-f61e42bc372e',
+  keyword: 'ans_e3eb4a99-84d4-447b-bcd5-a2fa2a341f0b',
+  answer: '__capture_only_intended__',
+  options: {
+    media: undefined,
+    buttons: [],
+    capture: true,
+    delay: 10,
+    idle: undefined,
+    ref: undefined,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '9faec3cf0b8230d2211c4520b37b08ae'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214432545043@s.whatsapp.net',
+    fromMe: false,
+    id: '82CAD3373A529F0DFBA31D90536AFEB8',
+    participant: undefined
+  },
+  messageTimestamp: 1717820707,
+  pushName: 'Maggie',
+  broadcast: false,
+  message: Message {
+    conversation: '#',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '#',
+  name: 'Maggie',
+  from: '5214432545043',
+  host: '5214433632025'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_3f33c2ff-235e-4a45-8c7b-a4dc2b3e15d6',
+  keyword: 'key_283d24fe-57ae-4ab1-b881-35f1b0628b4c',
+  answer: '*Menú Principal*',
+  options: {
+    media: undefined,
+    buttons: [],
+    capture: false,
+    delay: 0,
+    idle: undefined,
+    ref: undefined,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '4c8005d4da457bf086509e038da32797'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_87ffd43b-e219-4663-a653-7d6e6f987fe3',
+  keyword: 'ans_3f33c2ff-235e-4a45-8c7b-a4dc2b3e15d6',
+  answer: "🙌 ¡Hola! ¿Qué tal si te ayudo a saciar tu apetito con una deliciosa pizza de *Mateini's*?",
+  options: {
+    media: undefined,
+    buttons: [],
+    capture: false,
+    delay: 0,
+    idle: undefined,
+    ref: undefined,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: 'bf332d36b08da3d3ec507985378eb3df'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_e441e6a8-ca26-47ae-b849-dbade83c8536',
+  keyword: 'ans_87ffd43b-e219-4663-a653-7d6e6f987fe3',
+  answer: '__call_action__',
+  options: {
+    media: undefined,
+    buttons: [],
+    capture: false,
+    delay: 0,
+    idle: undefined,
+    ref: undefined,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'd94feabe76dbfa49d46a3634a100670e'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_e3eb4a99-84d4-447b-bcd5-a2fa2a341f0b',
+  keyword: 'ans_e441e6a8-ca26-47ae-b849-dbade83c8536',
+  answer: 'Elige una de las siguientes opciones para continuar:\n' +
+    ' 1️⃣​ Hacer un pedido\n' +
+    ' 2️⃣​ Menú\n' +
+    ' 3️⃣​​ Ingredientes pizzas\n' +
+    ' 4️⃣​​ Ubicación',
+  options: {
+    media: undefined,
+    buttons: [],
+    capture: false,
+    delay: 10,
+    idle: undefined,
+    ref: undefined,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '467f8440175491e63e0d9fee35b90fe9'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_c969d9e9-83bd-4927-80e7-f61e42bc372e',
+  keyword: 'ans_e3eb4a99-84d4-447b-bcd5-a2fa2a341f0b',
+  answer: '__capture_only_intended__',
+  options: {
+    media: undefined,
+    buttons: [],
+    capture: true,
+    delay: 10,
+    idle: undefined,
+    ref: undefined,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '9faec3cf0b8230d2211c4520b37b08ae'
+}
