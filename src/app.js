@@ -23,7 +23,8 @@ const flow1 = addKeyword('1')
             \n-Pizza: ${state.get('order')} 
             \n-Refresco: ${state.get('soda')}
             \n-Direccion: ${state.get('direccion')}
-            \n-Metodo de pago: ${state.get('pago')}`);
+            \n-Metodo de pago: ${state.get('pago')}
+            \n !ORDEN TOMADA¡ , nuestro repartidor estará en tu domicilio muy pronto`);
         //return gotoFlow(mainFlow);
     });
 
