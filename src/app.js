@@ -24,14 +24,13 @@ const flow1 = addKeyword('1')
             \n-Refresco: ${state.get('soda')}
             \n-Direccion: ${state.get('direccion')}
             \n-Metodo de pago: ${state.get('pago')}`);
-        return gotoFlow(mainFlow);
+        //return gotoFlow(mainFlow);
     });
 
 const flow2 = addKeyword(['2', utils.setEvent('2')])
     .addAnswer('Este es nuestro menú')
     .addAnswer('2', { media: join(process.cwd(), 'assets', 'sample.jpg') })
     .addAnswer(`Esperamos que tengas apetito`, null, async (ctx, { gotoFlow }) => {
-        await delay(2000);
         return gotoFlow(mainFlow);
     });
 
@@ -65,28 +64,24 @@ const flow3 = addKeyword(['3', utils.setEvent('3')])
 const flowMar = addKeyword(['1', utils.setEvent('1')])
     .addAnswer('Pizza napolitana elaborada con tomate, mozzarella, albahaca fresca, sal y aceite.')
     .addAnswer(`Esperamos que sea de tu gusto`, null, async (ctx, { gotoFlow }) => {
-        await delay(2000);
         return gotoFlow(flow3);
     });
 
 const flowPep = addKeyword(['2', utils.setEvent('2')])
     .addAnswer('Pizza con base de salsa de tomate, mozzarella y pepperoni.')
     .addAnswer(`Esperamos que sea de tu gusto`, null, async (ctx, { gotoFlow }) => {
-        await delay(2000);
         return gotoFlow(flow3);
     });
 
 const flowVeg = addKeyword(['3', utils.setEvent('3')])
     .addAnswer('Pizza elaborada con cebolla, maíz, mozzarella, champiñones y jitomate.')
     .addAnswer(`Esperamos que sea de tu gusto`, null, async (ctx, { gotoFlow }) => {
-        await delay(2000);
         return gotoFlow(flow3);
     });
 
 const flowCua = addKeyword(['4', utils.setEvent('4')])
     .addAnswer('Pizza dividida en cuatro secciones, preparada con alcachofas, albahaca, tomate, setas, jamón y aceitunas.')
     .addAnswer(`Esperamos que sea de tu gusto`, null, async (ctx, { gotoFlow }) => {
-        await delay(2000);
         return gotoFlow(flow3);
     });
 
@@ -94,7 +89,6 @@ const flow4 = addKeyword(['4', utils.setEvent('4')])
     .addAnswer('Esta es nuestra dirección')
     .addAnswer('https://maps.app.goo.gl/DozfCECmQ38WFNuG7')
     .addAnswer(`Esperamos verte pronto, para nosotros será un placer atenderte`, null, async (ctx, { gotoFlow }) => {
-        await delay(2000);
         return gotoFlow(mainFlow);
     });
 
@@ -126,7 +120,7 @@ const mainFlow = addKeyword(['#'])
         []
     );
 
-    
+
 const main = async () => {
     const adapterFlow = createFlow([mainFlow, flow1, flow2, flow3, flowMar, flowPep, flowVeg, flowCua, flow4]);
 
