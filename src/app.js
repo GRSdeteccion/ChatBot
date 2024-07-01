@@ -28,12 +28,16 @@ const flow1 = addKeyword('1')
         //return gotoFlow(mainFlow);
     });
 
-const flow2 = addKeyword(['2', utils.setEvent('2')])
-    .addAnswer('Este es nuestro menú')
-    .addAnswer('2', { media: join(process.cwd(), 'assets', 'sample.jpg') })
-    .addAnswer(`Esperamos que tengas apetito`, null, async (ctx, { gotoFlow }) => {
-        return gotoFlow(mainFlow);
-    });
+    const flow2 = addKeyword(['2', utils.setEvent('2')])
+    .addAnswer(
+        async (_, { flowDynamic, gotoFlow }) => {
+            await flowDynamic('Este es nuestro menú');
+            await flowDynamic({ media: join(process.cwd(), 'assets', 'sample.jpg') });
+            await flowDynamic('Esperamos que tengas apetito');
+            return gotoFlow(mainFlow);
+        }
+    );
+
 
 const flow3 = addKeyword(['3', utils.setEvent('3')])
     .addAnswer('¿De cuál de nuestras pizzas te gustaría conocer los ingredientes?')
