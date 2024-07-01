@@ -28,15 +28,20 @@ const flow1 = addKeyword('1')
         //return gotoFlow(mainFlow);
     });
 
-    const flow2 = addKeyword(['2', utils.setEvent('2')])
+const flow2 = addKeyword(['2', utils.setEvent('2')])
     .addAnswer(
-        async (_, { flowDynamic, gotoFlow }) => {
-            await flowDynamic('Este es nuestro menú');
-            await flowDynamic({ media: join(process.cwd(), 'assets', 'sample.jpg') });
-            await flowDynamic('Esperamos que tengas apetito');
-            return gotoFlow(mainFlow);
+        async (ctx, { flowDynamic, gotoFlow }) => {
+            if (ctx.body.length === 1 && ctx.body === '2') {
+                await flowDynamic('Este es nuestro menú');
+                await flowDynamic({ media: join(process.cwd(), 'assets', 'sample.jpg') });
+                await flowDynamic('Esperamos que tengas apetito');
+                return gotoFlow(mainFlow);
+            } else {
+                await flowDynamic('Entrada no válida. Por favor, ingresa solo el número 2.');
+            }
         }
     );
+
 
 
 const flow3 = addKeyword(['3', utils.setEvent('3')])
